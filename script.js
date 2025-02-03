@@ -1,11 +1,12 @@
 let container = document.querySelector(".container");
 let showimagebtn = document.querySelector("#show_heart_img");
 let likeimageloadcontainer = document.querySelector(".likeimageloadcontainer");
+let likedimgsarray = [];
 function displayUI() {
   for (let i = 1; i <= 6; i++) {
     let randomNumber = Math.floor(Math.random() * 1000);
     let imagehtml = `<div class="imgcontainer">
-        <img src="https://robohash.org/${randomNumber}.png" alt="" />
+        <img src="https://robohash.org/${randomNumber}.png" alt="" id ="unliked" />
       </div>`;
     container.innerHTML += imagehtml;
   }
@@ -23,7 +24,11 @@ function likeFeature() {
     setTimeout(() => {
       imgclicked.children[1].remove();
     }, 2000);
-    StoreLikeImg(e);
+    if (!likedimgsarray.includes(e.target.src)) {
+      likedimgsarray.push(e.target.src);
+      StoreLikeImg(e);
+    }
+    console.log(likedimgsarray);
   });
 }
 

@@ -84,7 +84,7 @@ body {
   color: #ff001a;
 }
 .likedimage {
-    width: 100%;
+    width: 50%;
 }
 @media (max-width: 690px) {
   .container {
