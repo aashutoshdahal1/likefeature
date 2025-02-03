@@ -25,6 +25,12 @@ function likeFeature() {
     setTimeout(() => {
       imgclicked.children[1].remove();
     }, 2000);
+    setTimeout(() => {
+      likeimageloadcontainer.style.display = "block";
+    }, 200);
+    setTimeout(() => {
+      likeimageloadcontainer.style.display = "none";
+    }, 2000);
     if (!likedimgsarray.includes(e.target.src)) {
       likedimgsarray.push(e.target.src);
       StoreLikeImg(e);
