@@ -68,6 +68,16 @@ body {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
+@media (max-width: 1142px) {
+  .app {
+    flex-direction: column;
+    align-items: center;
+  }
+  .likedimagecontainer {
+    width: 70%;
+  }
+}
+
 .likedimagecontainer .show {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   text-align: center;
