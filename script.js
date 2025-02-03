@@ -3,6 +3,7 @@ let showimagebtn = document.querySelector("#show_heart_img");
 let likeimageloadcontainer = document.querySelector(".likeimageloadcontainer");
 let showbtn = document.querySelector(".likedimagecontainer p");
 let likedimgsarray = [];
+let previousSavedImgArray = [];
 function displayUI() {
   for (let i = 1; i <= 6; i++) {
     let randomNumber = Math.floor(Math.random() * 1000);
@@ -12,6 +13,20 @@ function displayUI() {
     container.innerHTML += imagehtml;
   }
   likeFeature();
+  let likedImagesSavedPrevious =
+    JSON.parse(localStorage.getItem("likedImages")) || [];
+  likedImagesSavedPrevious.forEach((e) => {
+    previousSavedImgArray.push(e);
+  });
+  console.log(previousSavedImgArray);
+  previousSavedImgArray.forEach((e) => {
+    let likedimg = e;
+    let img = document.createElement("img");
+    img.src = likedimg;
+    img.setAttribute("class", "likedimage");
+    console.log(img);
+    likeimageloadcontainer.appendChild(img);
+  });
 }
 document.addEventListener("DOMContentLoaded", displayUI);
 
@@ -33,9 +48,13 @@ function likeFeature() {
     }, 2000);
     if (!likedimgsarray.includes(e.target.src)) {
       likedimgsarray.push(e.target.src);
+      previousSavedImgArray.push(e.target.src);
+      localStorage.setItem(
+        "likedImages",
+        JSON.stringify(previousSavedImgArray)
+      );
       StoreLikeImg(e);
     }
-    console.log(likedimgsarray);
   });
 }
 
