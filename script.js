@@ -1,6 +1,7 @@
 let container = document.querySelector(".container");
 let showimagebtn = document.querySelector("#show_heart_img");
 let likeimageloadcontainer = document.querySelector(".likeimageloadcontainer");
+let showbtn = document.querySelector(".likedimagecontainer p");
 let likedimgsarray = [];
 function displayUI() {
   for (let i = 1; i <= 6; i++) {
@@ -40,3 +41,13 @@ function StoreLikeImg(e) {
   console.log(img);
   likeimageloadcontainer.appendChild(img);
 }
+let flag = true;
+showbtn.addEventListener("click", () => {
+  if (flag) {
+    likeimageloadcontainer.style.display = "block";
+    flag = false;
+  } else {
+    likeimageloadcontainer.style.display = "none";
+    flag = true;
+  }
+});

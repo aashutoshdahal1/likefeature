@@ -86,6 +86,9 @@ body {
 .likedimage {
     width: 50%;
 }
+.likeimageloadcontainer{
+    display: none;
+}
 @media (max-width: 690px) {
   .container {
     flex-direction: column;
