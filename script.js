@@ -8,8 +8,19 @@ function displayUI() {
       </div>`;
     container.innerHTML += imagehtml;
   }
+  likeFeature();
 }
 document.addEventListener("DOMContentLoaded", displayUI);
 
+function likeFeature() {
+  container.addEventListener("dblclick", (e) => {
+    let hearthtml = `<i class="fa-solid fa-heart" id="heart"></i>`;
+    let imgclicked = e.target.parentElement;
 
+    imgclicked.innerHTML += hearthtml;
 
+    setTimeout(() => {
+      imgclicked.children[1].remove();
+    }, 2000);
+  });
+}
