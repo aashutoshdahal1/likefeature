@@ -2,4 +2,39 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: aliceblue;
+}
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+.container {
+  max-width: 800px;
+  width: 100%;
+  background-color: black;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.imgcontainer {
+  width: 30%;
+  height: 300px;
+}
+.imgcontainer img {
+  width: 100%;
+  cursor: pointer;
+}
+@media (max-width: 690px) {
+  .container {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .imgcontainer {
+    width: 50%;
+  }
 }
